@@ -1,0 +1,81 @@
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+4b35f584bb4f: Pull complete
+Digest: sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> 
+
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker run --name pinger -i -t busybox ping -w 7 netology.ru
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=36 time=39.294 ms
+64 bytes from 188.114.98.224: seq=1 ttl=36 time=38.923 ms
+64 bytes from 188.114.98.224: seq=2 ttl=36 time=34.444 ms
+64 bytes from 188.114.98.224: seq=3 ttl=36 time=41.966 ms
+64 bytes from 188.114.98.224: seq=4 ttl=36 time=40.864 ms
+64 bytes from 188.114.98.224: seq=5 ttl=36 time=39.337 ms
+64 bytes from 188.114.98.224: seq=6 ttl=36 time=40.685 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 34.444/39.359/41.966 ms
+
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+54b42daac320   busybox   "ping -w 7 netology.…"   2 minutes ago   Exited (0) 2 minutes ago             pinger
+
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker logs pinger
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=36 time=39.294 ms
+64 bytes from 188.114.98.224: seq=1 ttl=36 time=38.923 ms
+64 bytes from 188.114.98.224: seq=2 ttl=36 time=34.444 ms
+64 bytes from 188.114.98.224: seq=3 ttl=36 time=41.966 ms
+64 bytes from 188.114.98.224: seq=4 ttl=36 time=40.864 ms
+64 bytes from 188.114.98.224: seq=5 ttl=36 time=39.337 ms
+64 bytes from 188.114.98.224: seq=6 ttl=36 time=40.685 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 34.444/39.359/41.966 ms
+
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker start pinger                                    
+pinger
+
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker ps -a       
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+54b42daac320   busybox   "ping -w 7 netology.…"   4 minutes ago   Exited (0) 9 seconds ago             pinger
+
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker logs pinger 
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=36 time=39.294 ms
+64 bytes from 188.114.98.224: seq=1 ttl=36 time=38.923 ms
+64 bytes from 188.114.98.224: seq=2 ttl=36 time=34.444 ms
+64 bytes from 188.114.98.224: seq=3 ttl=36 time=41.966 ms
+64 bytes from 188.114.98.224: seq=4 ttl=36 time=40.864 ms
+64 bytes from 188.114.98.224: seq=5 ttl=36 time=39.337 ms
+64 bytes from 188.114.98.224: seq=6 ttl=36 time=40.685 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 34.444/39.359/41.966 ms
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=36 time=254.916 ms
+64 bytes from 188.114.99.224: seq=1 ttl=36 time=64.592 ms
+64 bytes from 188.114.99.224: seq=2 ttl=36 time=49.378 ms
+64 bytes from 188.114.99.224: seq=3 ttl=36 time=46.478 ms
+64 bytes from 188.114.99.224: seq=4 ttl=36 time=48.275 ms
+64 bytes from 188.114.99.224: seq=5 ttl=36 time=50.031 ms
+64 bytes from 188.114.99.224: seq=6 ttl=36 time=52.004 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 46.478/80.810/254.916 ms
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker rm pinger  
+pinger
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16
+Deleted: sha256:7cfbbec8963d8f13e6c70416d6592e1cc10f47a348131290a55d43c3acab3fb9
+Deleted: sha256:baacf561cfff825708763ce7ee4a18293716c533e6ece3bd39009a5fb3c804d2
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> 

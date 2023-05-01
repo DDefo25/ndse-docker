@@ -1,0 +1,45 @@
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker pull node:15.14   
+15.14: Pulling from library/node
+bfde2ec33fbc: Pull complete
+787f5e2f1047: Pull complete
+7b6173a10eb8: Pull complete
+dc05be471d51: Pull complete
+55fab5cadd3c: Pull complete
+bd821d20ef8c: Pull complete
+6041b69671c6: Pull complete
+989c5d2d2313: Pull complete
+4b57d41e8391: Pull complete
+Digest: sha256:608bba799613b1ebf754034ae008849ba51e88b23271412427b76d60ae0d0627
+Status: Downloaded newer image for node:15.14
+docker.io/library/node:15.14
+	
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker run -it --env NAME=Max --env SURNAME=Pume node:15.14
+Welcome to Node.js v15.14.0.
+Type ".help" for more information.
+> console.log(`Привет, ${process.env.NAME} ${process.env.SURNAME}!`)
+Привет, Max Pume!
+undefined
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker ps -a
+CONTAINER ID   IMAGE        COMMAND                  CREATED              STATUS                     PORTS     NAMES
+7fe0dbceab07   node:15.14   "docker-entrypoint.s…"   About a minute ago   Exited (0) 8 seconds ago             admiring_lalande
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker stop 7fe0dbceab07
+7fe0dbceab07
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker rmi node:15.14
+Error response from daemon: conflict: unable to remove repository reference "node:15.14" (must force) - container d94b6a4fdc2f is using its referenced image 3d3f41722daf
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> docker rmi node      
+Untagged: node:latest
+Untagged: node@sha256:242d81ad2a91353ac3a5ed3598582acb4a9a7761b16c60524b949a1603707848
+Deleted: sha256:07f4e626c252cc83cd9c82225058cb4226581b77e44d614d8f8585828c34f496
+Deleted: sha256:6d7140527100b8a0b62be606f36279d068bc6a0fa52a415f02d8dd8930e4a226
+Deleted: sha256:4017cd6327da64d694e907023bd3b27cf7073ced8456e88014989b41cdacba41
+Deleted: sha256:37cd3570fe018fbedb5359582a8d749c9ba8a3806519649433cef62df9656b3a
+Deleted: sha256:6c57c349090475e4c491e2c774e2cb25cd949db386d5bc0ac605908b65d10584
+Deleted: sha256:230c3b2acf5c7ce5ccbc11c5292092a5af0ce5b1e366228eee031eb9c84ed0dc
+Deleted: sha256:34349aaf2e7f75c266222ea09df6e2bef39fea73640d191dfc5d271d390103fc
+Deleted: sha256:f51029f953be13d297d2bc2dd7c56c0a84c77cd7bd6672837a01c4571c7cf5fa
+Deleted: sha256:2fab58d5cf486ed4ca265634fde3c8b4a046ade908d9b1d5405d8dfce6d12413
+Deleted: sha256:ae56c0c5405b3d38a59b5ec5dfe5db36e8b6ff6ca8595851f903cde13e709282
+PS D:\Google Диск\Fullstack JavaScript\ndse\ndse_docker> 
